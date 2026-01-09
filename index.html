@@ -3,12 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta property="og:title" content="Tura's Elegance - Premium Experience">
-    <meta property="og:description" content="১০০% অরিজিনাল প্রিমিয়াম কসমেটিকসের নির্ভরযোগ্য শপ।">
-    <meta property="og:image" content="https://raw.githubusercontent.com/tush105/Tura-s-elegance/main/logo.png"> <meta property="og:url" content="https://tush105.github.io/Tura-s-elegance/">
-    <meta property="og:type" content="website">
-
     <title>Tura's Elegance - Premium Experience</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,900&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -21,6 +15,7 @@
         .rose-petal { position: fixed; top: -50px; user-select: none; z-index: 9999; pointer-events: none; animation: fall linear infinite; }
         @keyframes fall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
 
+        /* Floating WA */
         .floating-wa { position: fixed; bottom: 30px; left: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 5000; text-decoration: none; }
 
         nav { padding: 40px 20px 10px; text-align: center; }
@@ -37,18 +32,23 @@
         .price { font-size: 16px; font-weight: bold; color: #d63384; margin-bottom: 10px; }
         .btn-add-cart { width: 100%; padding: 12px; background: #111; color: #fff; border: none; border-radius: 10px; font-size: 12px; font-weight: bold; cursor: pointer; }
 
+        /* Reviews */
+        .reviews { padding: 50px 20px; background: #fffafc; white-space: nowrap; overflow-x: auto; text-align: center; }
+        .review-card { background: white; padding: 20px; border-radius: 15px; margin: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); display: inline-block; width: 280px; white-space: normal; vertical-align: top; text-align: left; border: 1px solid #ffeef4; }
+
         /* Footer & Payment Icons Fixed */
         footer { background: #fff; padding: 60px 20px 20px; border-top: 1px solid #ffdeeb; margin-top: 50px; }
         .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
         
-        .payment-icons { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 25px; align-items: flex-start; justify-content: center; }
-        .pay-item { display: flex; flex-direction: column; align-items: center; width: 65px; text-align: center; }
-        .pay-item img { width: 40px; height: 25px; object-fit: contain; margin-bottom: 8px; }
-        .pay-item span { font-size: 8px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+        .payment-icons { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 25px; align-items: flex-start; }
+        .pay-item { display: flex; flex-direction: column; align-items: center; width: 60px; text-align: center; }
+        .pay-item img { width: 100%; height: 35px; object-fit: contain; margin-bottom: 8px; }
+        .pay-item span { font-size: 9px; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
 
         .bag-icon { position: fixed; top: 25px; right: 20px; background: #1a1a1a; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; cursor: pointer; }
         #cart-count { position: absolute; top: -5px; right: -5px; background: #ff4d4d; font-size: 10px; padding: 2px 6px; border-radius: 50%; }
 
+        /* Modal */
         .modal { display: none; position: fixed; z-index: 10001; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); }
         .modal-content { background: white; margin: 15% auto; padding: 30px; border-radius: 20px; width: 85%; max-width: 500px; position: relative; }
         .cart-drawer { position: fixed; right: -100%; top: 0; width: 100%; height: 100%; background: white; z-index: 2000; transition: 0.4s; padding: 30px; overflow-y: auto; }
@@ -85,6 +85,22 @@
     </div>
 </div>
 
+<section class="reviews reveal">
+    <h2 style="font-family:'Playfair Display'; margin-bottom:25px;">Happy Customers ❤️</h2>
+    <div style="overflow-x: auto; display: flex; padding-bottom: 20px;">
+        <div class="review-card">
+            <div style="color:#FFD700;">⭐⭐⭐⭐⭐</div>
+            <p style="font-size:13px; margin-top:10px;">"পণ্যটা একদম অরিজিনাল। প্যাকেজিং খুব সুন্দর ছিল।"</p>
+            <p style="font-weight:bold; margin-top:10px; font-size:12px;">- Rumana Akter</p>
+        </div>
+        <div class="review-card">
+            <div style="color:#FFD700;">⭐⭐⭐⭐</div>
+            <p style="font-size:13px; margin-top:10px;">"লিপস্টিক শেডটা দারুন, তবে ডেলিভারি ১ দিন দেরি হয়েছে।"</p>
+            <p style="font-weight:bold; margin-top:10px; font-size:12px;">- Mim Islam</p>
+        </div>
+    </div>
+</section>
+
 <footer>
     <div class="footer-grid">
         <div>
@@ -105,7 +121,7 @@
                     <span>Mastercard</span>
                 </div>
                 <div class="pay-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/BKash_Logo.svg/1200px-BKash_Logo.svg.png" alt="bKash">
+                    <img src="https://freelogopng.com/images/all_img/1656234745bkash-app-logo-png.png" alt="bKash">
                     <span>bKash</span>
                 </div>
                 <div class="pay-item">
@@ -114,9 +130,23 @@
                 </div>
             </div>
         </div>
+        <div>
+            <h3 style="color:#d63384; font-family:'Playfair Display'; margin-bottom:15px;">Support Center</h3>
+            <p style="cursor:pointer; font-size:14px; color:#666; margin-bottom:8px;" onclick="showPolicy('Privacy Policy', 'আমরা আপনার গোপনীয়তাকে সর্বোচ্চ গুরুত্ব দেই।')">Privacy Policy</p>
+            <p style="cursor:pointer; font-size:14px; color:#666; margin-bottom:8px;" onclick="showPolicy('Store Policy', '১০০% অরিজিনাল প্রোডাক্টের নিশ্চয়তা।')">Store Policy</p>
+            <p style="cursor:pointer; font-size:14px; color:#666;" onclick="showPolicy('Shipping Info', 'ঢাকা ৮০৳, বাইরে ১২০৳।')">Shipping Info</p>
+        </div>
     </div>
     <p style="text-align:center; margin-top:40px; font-size:12px; color:#999;">&copy; 2026 Tura's Elegance | Developed with Love 🌹</p>
 </footer>
+
+<div id="policyModal" class="modal">
+    <div class="modal-content">
+        <span onclick="closePolicy()" style="position:absolute; top:15px; right:20px; font-size:24px; cursor:pointer;">&times;</span>
+        <h2 id="policyTitle" style="color: #d63384; font-family: 'Playfair Display'; margin-bottom:15px;"></h2>
+        <p id="policyBody" style="color: #555; font-size: 14px; line-height: 1.6;"></p>
+    </div>
+</div>
 
 <div class="cart-drawer" id="cart-drawer">
     <h2>Your Bag</h2>
@@ -154,6 +184,8 @@
         document.getElementById('total-amount').innerText = total;
     }
     function toggleCart() { document.getElementById('cart-drawer').classList.toggle('active'); }
+    function showPolicy(t, b) { document.getElementById('policyTitle').innerText = t; document.getElementById('policyBody').innerText = b; document.getElementById('policyModal').style.display = 'block'; }
+    function closePolicy() { document.getElementById('policyModal').style.display = 'none'; }
     function goToCheckout() {
         if(cart.length === 0) return;
         const products = cart.map(i => i.name).join(', ');
@@ -162,4 +194,4 @@
     }
 </script>
 </body>
-</html>
+    </html>
