@@ -1,141 +1,78 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tura's Elegance - Premium Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Tura's Elegance - Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; background-color: #fafafa; color: #222; padding-bottom: 70px; }
-        
-        header { background: white; padding: 20px; text-align: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
-        .logo { width: 80px; height: 80px; border-radius: 50%; border: 2px solid #880e4f; margin-bottom: 10px; }
-        header h1 { font-size: 20px; margin: 0; color: #880e4f; text-transform: uppercase; letter-spacing: 1px; }
-
-        .container { padding: 10px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center; padding-bottom: 10px; }
-        .product-img { width: 100%; aspect-ratio: 1/1; background: #f0f0f0; object-fit: cover; }
-        .product-name { font-size: 13px; margin: 10px 0 5px; font-weight: 600; }
-        .product-price { color: #880e4f; font-weight: bold; margin-bottom: 10px; }
-        
-        .btn-buy { background: #25D366; color: white; border: none; padding: 10px 20px; border-radius: 20px; font-size: 12px; cursor: pointer; font-weight: bold; }
-
-        /* Order Form Section */
-        #order-section { display: none; padding: 20px; background: #fff; margin: 20px 10px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .notice-box { background: #fff5f8; border: 2px dashed #880e4f; padding: 15px; border-radius: 12px; margin-bottom: 20px; text-align: center; }
-        .notice-box p { font-size: 14px; color: #d32f2f; line-height: 1.6; margin: 0; font-weight: 500; }
-        
-        .input-group { margin-bottom: 15px; text-align: left; }
-        .input-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; }
-        .input-group input, .input-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; outline: none; }
-
-        /* Information Sections */
-        .info-section { padding: 20px; background: #fff; margin-top: 20px; border-top: 1px solid #eee; text-align: left; }
-        .info-section h2 { font-size: 16px; color: #880e4f; margin-bottom: 10px; }
-        .info-section p { font-size: 13px; color: #555; line-height: 1.5; }
-
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #eee; z-index: 2000; }
-        .nav-item { text-align: center; text-decoration: none; color: #666; font-size: 11px; flex: 1; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; background-color: #fdfbfd; color: #333; overflow-x: hidden; }
+        nav { padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: bold; color: #111; }
+        .hero { position: relative; padding: 40px 25px; background: linear-gradient(to right, #fff0f5, #f3e5f5); min-height: 400px; display: flex; align-items: center; }
+        .hero-text { max-width: 60%; z-index: 2; }
+        .hero-script { font-family: 'Great Vibes', cursive; color: #d63384; font-size: 30px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.2; margin-bottom: 15px; }
+        .hero-img { position: absolute; right: -20px; top: 50px; width: 55%; z-index: 1; }
+        .hero-img img { width: 100%; border-radius: 20px; }
+        .search-container { padding: 0 20px; margin-top: -30px; position: relative; z-index: 10; }
+        .search-box { background: white; padding: 15px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .btn-find { background: linear-gradient(90deg, #ff80bf, #b57dff); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: 600; margin-top: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 20px; padding-bottom: 80px; }
+        .card { background: white; border-radius: 12px; padding: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .card-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px; }
+        .btn-buy-sm { display: block; text-align: center; font-size: 11px; background: #111; color: white; text-decoration: none; padding: 10px; border-radius: 6px; margin-top: 10px; }
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #eee; z-index: 1000; }
+        .nav-item { text-align: center; text-decoration: none; color: #999; font-size: 10px; }
         .nav-item i { font-size: 20px; display: block; margin-bottom: 4px; }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="logo.png" alt="Logo" class="logo">
-    <h1>Tura's Elegance 💖</h1>
-</header>
+<nav>
+    <div class="logo">Tura's</div>
+    <div class="nav-icons"><i class="fa-solid fa-bag-shopping"></i></div>
+</nav>
 
-<div id="home-content">
-    <div class="container">
-        <div style="grid-column: span 2; background: #fff5f8; padding: 15px; border-radius: 10px; text-align: left; border: 1px dashed #880e4f; margin-bottom: 10px;">
-            <p style="margin: 0; font-weight: bold; font-size: 14px;">🚚 ডেলিভারি চার্জ:</p>
-            <p style="margin: 5px 0; font-size: 13px;">📍 ঢাকা: ৮০৳ | 📍 ঢাকার বাইরে: ১২০৳</p>
-            <p style="margin: 0; font-size: 13px; color: #666;">⏱️ সময়: ২-৩ কার্যদিবস</p>
-        </div>
-
-        <div class="product-card">
-            <img src="logo.png" class="product-img">
-            <div class="product-info">
-                <p class="product-name">Your Product Name</p>
-                <p class="product-price">000 ৳</p>
-                <button class="btn-buy" onclick="showOrderForm('Product Name')">অর্ডার করতে মেসেজ দিন</button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="logo.png" class="product-img">
-            <div class="product-info">
-                <p class="product-name">Your Product Name</p>
-                <p class="product-price">000 ৳</p>
-                <button class="btn-buy" onclick="showOrderForm('Product Name')">অর্ডার করতে মেসেজ দিন</button>
-            </div>
-        </div>
+<section class="hero">
+    <div class="hero-text">
+        <span class="hero-script">Gift beauty</span>
+        <h1>Like you <br>mean it.</h1>
     </div>
-
-    <div class="info-section">
-        <h2>Privacy Policy</h2>
-        <p>Tura's Elegance-এ আপনার গোপনীয়তা আমাদের কাছে অত্যন্ত গুরুত্বপূর্ণ। আমরা আপনার ব্যক্তিগত তথ্য শুধুমাত্র অর্ডার ডেলিভারি করার উদ্দেশ্যে ব্যবহার করি।</p>
+    <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?w=500" alt="Hero">
     </div>
-    <div class="info-section">
-        <h2>Terms & Conditions</h2>
-        <p>১. সঠিক নাম ও ঠিকানা প্রদান করুন। ২. ডেলিভারি ম্যান থাকাকালীন পণ্য চেক করুন। ৩. স্টকের ওপর ভিত্তি করে দ্রুত ডেলিভারি দেওয়া হবে।</p>
+</section>
+
+<div class="search-container">
+    <div class="search-box">
+        <p style="font-weight: bold; font-size: 14px; margin-bottom: 5px;">Find your desired gifts</p>
+        <button class="btn-find">Explore Collections</button>
     </div>
 </div>
 
-<div id="order-section">
-    <button onclick="hideOrderForm()" style="border: none; background: none; color: #880e4f; font-weight: bold; cursor: pointer; margin-bottom: 15px;">← ফিরে যান</button>
-    <div class="notice-box">
-        <p>প্রিয় ক্রেতাগণ, একজন মুসলিম ভাই হিসেবে আপনাদের কাছে হাত জোর করে অনুরোধ থাকবে। ঔষধ টি আপনার প্রয়োজন না থাকলে অর্ডার করে আমাদের ক্ষতি করবেন না। একটি পার্সেল পাঠাতে আমার প্রায় ১৩০ টাকা খরচ পরে।</p>
+<div class="grid">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400" class="card-img">
+        <p style="font-size: 13px; font-weight: 600; margin-top: 8px;">Velvet Lipstick</p>
+        <p style="font-weight: bold; color: #d63384;">550 ৳</p>
+        <a href="order.html?product=Velvet Lipstick" class="btn-buy-sm">Order Now</a>
     </div>
-    <div class="input-group">
-        <label>আপনার নাম লিখুন *</label>
-        <input type="text" id="custName">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400" class="card-img">
+        <p style="font-size: 13px; font-weight: 600; margin-top: 8px;">Glow Serum</p>
+        <p style="font-weight: bold; color: #d63384;">850 ৳</p>
+        <a href="order.html?product=Glow Serum" class="btn-buy-sm">Order Now</a>
     </div>
-    <div class="input-group">
-        <label>আপনার ঠিকানা লিখুন *</label>
-        <textarea id="custAddress" rows="3"></textarea>
-    </div>
-    <div class="input-group">
-        <label>আপনার ফোন নম্বরটি লিখুন *</label>
-        <input type="tel" id="custPhone">
-    </div>
-    <button class="btn-buy" style="width: 100%; padding: 15px; font-size: 16px; background: #25D366;" onclick="sendToWhatsApp()">অর্ডার কনফার্ম করুন</button>
 </div>
 
 <div class="bottom-nav">
-    <a href="#" class="nav-item" onclick="hideOrderForm()">
-        <i class="fa-solid fa-house"></i> Home
-    </a>
-    <a href="https://api.whatsapp.com/send?phone=8801794296589" class="nav-item" style="color: #25D366;">
-        <i class="fa-brands fa-whatsapp"></i> Chat
-    </a>
-    <a href="tel:01794296589" class="nav-item">
-        <i class="fa-solid fa-phone"></i> Call
-    </a>
+    <a href="index.html" class="nav-item" style="color: #d63384;"><i class="fa-solid fa-house"></i>Home</a>
+    <a href="https://api.whatsapp.com/send?phone=8801794296589" class="nav-item"><i class="fa-brands fa-whatsapp"></i>Chat</a>
+    <a href="tel:01794296589" class="nav-item"><i class="fa-solid fa-phone"></i>Call</a>
 </div>
-
-<script>
-    function showOrderForm(pName) {
-        document.getElementById('home-content').style.display = 'none';
-        document.getElementById('order-section').style.display = 'block';
-        window.scrollTo(0,0);
-    }
-    function hideOrderForm() {
-        document.getElementById('home-content').style.display = 'block';
-        document.getElementById('order-section').style.display = 'none';
-        window.scrollTo(0,0);
-    }
-    function sendToWhatsApp() {
-        const name = document.getElementById('custName').value;
-        const addr = document.getElementById('custAddress').value;
-        const phone = document.getElementById('custPhone').value;
-        if(!name || !addr || !phone) { alert("সব তথ্য দিন!"); return; }
-        window.open(`https://api.whatsapp.com/send?phone=8801794296589&text=অর্ডার তথ্য:%0Aনাম: ${name}%0Aঠিকানা: ${addr}%0Aফোন: ${phone}`, '_blank');
-    }
-</script>
 
 </body>
 </html>
