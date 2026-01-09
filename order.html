@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now - Tura's Elegance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background-color: #fdfbfd; color: #333; }
+        
+        .header { 
+            background: linear-gradient(90deg, #ff80bf, #b57dff); padding: 25px; 
+            text-align: center; color: white; border-radius: 0 0 25px 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .header h2 { margin: 0; font-size: 20px; font-weight: 600; }
+
+        .container { max-width: 500px; margin: 20px auto; padding: 20px; }
+
+        .order-box {
+            background: white; border-radius: 15px; padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid #f0f0f0;
+        }
+
+        .product-summary { 
+            display: flex; align-items: center; gap: 15px; 
+            margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee;
+        }
+        .p-icon { width: 45px; height: 45px; background: #f3e5f5; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #880e4f; font-size: 20px; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 13px; color: #555; }
+        .form-group input, .form-group textarea { 
+            width: 100%; padding: 14px; border: 1px solid #e0e0e0; border-radius: 12px; 
+            font-size: 14px; outline: none; background: #fafafa;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: #d63384; background: #fff; }
+
+        .delivery-box { background: #fff9fb; padding: 15px; border-radius: 12px; border: 1px solid #ffeef5; margin-bottom: 25px; }
+        .d-title { font-size: 13px; font-weight: bold; margin-bottom: 12px; display: block; color: #880e4f; }
+        .radio-group { display: flex; gap: 20px; }
+        .radio-item { font-size: 13px; display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; }
+
+        .btn-confirm { 
+            width: 100%; padding: 16px; background: #25D366; color: white; border: none; 
+            border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer; 
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.2);
+        }
+        .btn-back { display: block; text-align: center; margin-top: 25px; color: #880e4f; text-decoration: none; font-size: 13px; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h2>অর্ডার তথ্য দিন</h2>
+</div>
+
+<div class="container">
+    <div class="order-box">
+        <div class="product-summary">
+            <div class="p-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+            <div>
+                <p style="margin: 0; font-size: 11px; color: #888;">ORDERING:</p>
+                <h3 id="selected-product" style="margin: 3px 0; color: #222; font-size: 16px;">Loading...</h3>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>আপনার নাম লিখুন *</label>
+            <input type="text" id="custName" placeholder="উদাঃ আব্দুল্লাহ">
+        </div>
+
+        <div class="form-group">
+            <label>আপনার পূর্ণাঙ্গ ঠিকানা *</label>
+            <textarea id="custAddress" rows="3" placeholder="বাসা নং, রোড নং, এলাকা, জেলা..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>আপনার ফোন নম্বর লিখুন *</label>
+            <input type="tel" id="custPhone" placeholder="01XXXXXXXXX">
+        </div>
+
+        <div class="delivery-box">
+            <span class="d-title"><i class="fa-solid fa-truck"></i> ডেলিভারি এরিয়া:</span>
+            <div class="radio-group">
+                <label class="radio-item"><input type="radio" name="dcharge" value="80" checked> ঢাকা (৮০৳)</label>
+                <label class="radio-item"><input type="radio" name="dcharge" value="120"> ঢাকার বাইরে (১২০৳)</label>
+            </div>
+        </div>
+
+        <button class="btn-confirm" onclick="sendOrder()">
+            অর্ডার কনফার্ম করুন
+        </button>
+    </div>
+
+    <a href="index.html" class="btn-back">← হোম পেজে ফিরে যান</a>
+</div>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = urlParams.get('product') || "Selected Product";
+    document.getElementById('selected-product').innerText = product;
+
+    function sendOrder() {
+        const name = document.getElementById('custName').value;
+        const address = document.getElementById('custAddress').value;
+        const phone = document.getElementById('custPhone').value;
+        const charge = document.querySelector('input[name="dcharge"]:checked').value;
+
+        if(!name || !address || !phone) {
+            alert("সব তথ্য দিন!");
+            return;
+        }
+
+        const message = `*New Order!*%0A*📦 প্রোডাক্ট:* ${product}%0A👤 নাম: ${name}%0A📍 ঠিকানা: ${address}%0A📞 ফোন: ${phone}%0A🚚 চার্জ: ${charge}৳`;
+
+        window.open(`https://api.whatsapp.com/send?phone=8801794296589&text=${message}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
